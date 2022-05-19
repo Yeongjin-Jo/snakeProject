@@ -1,0 +1,1 @@
+D:\SnakeGame\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
