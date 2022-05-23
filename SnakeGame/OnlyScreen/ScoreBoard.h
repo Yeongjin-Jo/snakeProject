@@ -1,68 +1,38 @@
 #pragma once
 
-#include <curses.h>
-
-class ScoreBoard
+class Scoreboard
 {
+	WINDOW *score_win;
 public:
-	// 생성자
-	Board()
+	Scoreboard()
 	{
-		construct(0, 0);
 	}
 
-	Board(int height, int width)
+	Scoreboard(int width, int y, int x)
 	{
-		construct(height, width);
+		score_win = newwin(15, width, y, x);
 	}
 
-
-	// 함수
-	void initialize()	// 윈도우 생성     initialize() -> clear() -> addBorder() -> refresh()
+	void initialize(int initial_score)
 	{
 		clear();
+		mvwprintw(score_win, 0, 0, "Score:");
+		updateScore(initial_score);
 		refresh();
 	}
 
-	void addBorder()	// 테두리 만들기
+	void updateScore(int score)
 	{
-		
-
-		box(score_win, 0, 0);
+		mvwprintw(score_win, 0, score_win->_maxx - 10, "%i", score);
 	}
 
-	void add(Drawable drawable)
-	{
-		addAt(drawable.getX(), drawable.getY(), drawable.getIcon());
-	}
-
-	void addAt(int y, int x, chtype ch)
-	{
-		mvwaddch(score_win, y, x, ch);
-	}
-
-	chtype getInput()
-	{
-		return wgetch(score_win);
-	}
-
-	void clear()	// 윈도우 클리어 및 테두리 생성
+	void clear()
 	{
 		wclear(score_win);
-		addBorder();
 	}
 
-	void refresh()	// 윈도우 화면 업데이트 (addAt함수 쓰고 나서 무조건 실행해야 반영됨)
+	void refresh()
 	{
-		wrefresh(board_win);
 		wrefresh(score_win);
-	}
-
-private:
-	WINDOW* score_win;
-
-	void construct(int height, int width)
-	{
-		
 	}
 };
