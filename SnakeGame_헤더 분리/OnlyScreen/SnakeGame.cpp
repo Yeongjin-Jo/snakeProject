@@ -19,6 +19,32 @@ void SnakeGame::handleNextPiece(SnakePiece next)
 			break;
 		}
 
+		// gate에 도달했을 때의 코드 만들기
+		case 'G':
+		{
+			board.time += snake.prev_pieces.size();	// 스네이크의 길이만큼 시간을 추가함으로써 gate가 유지되게끔 한다.
+
+			if (next.getY() == (*gate1).getY() && next.getX() == (*gate1).getX())
+			{
+				next = passGate(gate2);
+				int emptyRow = snake.tail().getY();
+				int emptyCol = snake.tail().getX();
+				board.add(Empty(emptyRow, emptyCol));
+				snake.removePiece();
+			}
+
+			else if (next.getY() == (*gate2).getY() && next.getX() == (*gate2).getX())
+			{
+				next = passGate(gate1);
+				int emptyRow = snake.tail().getY();
+				int emptyCol = snake.tail().getX();
+				board.add(Empty(emptyRow, emptyCol));
+				snake.removePiece();
+			}
+
+			break;
+		}
+
 		case '1':	// 벽에 부딪힌 경우 게임오버
 		case '#':	// 자기 몸에 닿아도 게임오버
 			game_over = true;
@@ -26,7 +52,7 @@ void SnakeGame::handleNextPiece(SnakePiece next)
 		}
 	}
 
-	board.time += 1;
+	board.time -= 1;
 	board.add(next);
 	snake.addPiece(next);
 }
@@ -69,6 +95,105 @@ void SnakeGame::deleteGate()
 	delete gate2;
 	gate1 = NULL;
 	gate2 = NULL;
+}
+
+SnakePiece SnakeGame::passGate(Gate* g)
+{
+	int tempPosX = (*g).getX();
+	int tempPosY = (*g).getY();
+
+	bool possibleLeft = false;
+	bool possibleRight = false;
+	bool possibleUp = false;
+	bool possibleDown = false;
+
+	Direction direction = snake.getDirection();
+
+	if (board.getCharAt(tempPosY + 1, tempPosX) == ' ')
+	{
+		possibleDown = true;
+	}
+	if (board.getCharAt(tempPosY, tempPosX + 1) == ' ')
+	{
+		possibleRight = true;
+	}
+	if (board.getCharAt(tempPosY - 1, tempPosX) == ' ')
+	{
+		possibleUp = true;
+	}
+	if (board.getCharAt(tempPosY, tempPosX - 1) == ' ')
+	{
+		possibleLeft = true;
+	}
+
+	//진입방향과 일치하는 경우
+	if (possibleLeft && direction == left)
+	{
+		tempPosX -= 1;
+	}
+	else if (possibleRight && direction == right)
+	{
+		tempPosX += 1;
+	}
+	else if (possibleUp && direction == up)
+	{
+		tempPosY -= 1;
+	}
+	else if (possibleDown && direction == down)
+	{
+		tempPosY += 1;
+	}
+
+	//snake의 direction을 바꿔야하는 경우 
+	else if (direction == up || direction == down)
+	{
+		if (possibleLeft)
+		{
+			tempPosX -= 1;
+			snake.setDirection(left);
+		}
+		else if (possibleRight)
+		{
+			tempPosX += 1;
+			snake.setDirection(right);
+		}
+		else if (possibleUp)
+		{
+			tempPosY -= 1;
+			snake.setDirection(up);
+		}
+		else if (possibleDown)
+		{
+			tempPosY += 1;
+			snake.setDirection(down);
+		}
+	}
+
+	else if (direction == left || direction == right)
+	{
+		if (possibleDown)
+		{
+			tempPosY += 1;
+			snake.setDirection(down);
+		}
+		else if (possibleUp)
+		{
+			tempPosY -= 1;
+			snake.setDirection(up);
+		}
+		else if (possibleLeft)
+		{
+			tempPosX -= 1;
+			snake.setDirection(left);
+		}
+		else if (possibleRight)
+		{
+			tempPosX += 1;
+			snake.setDirection(right);
+		}
+	}
+
+	return SnakePiece(tempPosY, tempPosX);
 }
 
 SnakeGame::SnakeGame(int height, int width, int speed = 300)
@@ -161,9 +286,10 @@ void SnakeGame::updateState()
 {
 	handleNextPiece(snake.nexthead());
 
-	if (board.time % 50 == 0)	// 시간이 50으로 나눠지면 Gate를 이동시킨다.
+	if (board.time == 0)	// 시간이 0가 되면 gate를 이동시키고 시간은 다시 50으로 세팅.
 	{
 		deleteGate();
+		board.time = 50;
 	}
 
 

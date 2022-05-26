@@ -13,7 +13,7 @@
 class Board
 {
 public:
-	int time = 0;
+	int time = 50;
 
 	// »ı¼ºÀÚ
 	Board();

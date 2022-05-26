@@ -1,20 +1,2 @@
 ﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(510,5): warning MSB8028: 중간 디렉터리(x64\Debug\)에 다른 프로젝트(OnlyScreen.vcxproj)에서 공유하는 파일이 포함되어 있습니다.  이로 인해 잘못된 정리 및 다시 빌드 동작이 수행될 수 있습니다.
-  Apple.cpp
-  Board.cpp
-C:\Users\min27\Desktop\SnakeGame_헤더 분리\OnlyScreen\Board.cpp(25,19): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\min27\Desktop\SnakeGame_헤더 분리\OnlyScreen\Board.cpp(26,19): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  Drawable.cpp
-  Empty.cpp
-  Gate.cpp
-  main.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\wincontypes.h(103,1): warning C4005: 'MOUSE_MOVED': 매크로 재정의
-C:\Users\min27\vcpkg\installed\x64-windows\include\curses.h(190): message : 'MOUSE_MOVED'의 이전 정의를 참조하십시오.
-C:\Users\min27\Desktop\SnakeGame_헤더 분리\OnlyScreen\main.cpp(22,29): warning C4244: '인수': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  ScoreBoard.cpp
-  Snake.cpp
-  SnakeGame.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\wincontypes.h(103,1): warning C4005: 'MOUSE_MOVED': 매크로 재정의
-C:\Users\min27\vcpkg\installed\x64-windows\include\curses.h(190): message : 'MOUSE_MOVED'의 이전 정의를 참조하십시오.
-C:\Users\min27\Desktop\SnakeGame_헤더 분리\OnlyScreen\SnakeGame.cpp(99,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  코드를 생성하고 있습니다...
-  OnlyScreen.vcxproj -> C:\Users\min27\Desktop\SnakeGame_헤더 분리\x64\Debug\SnakeGame.exe
+  OnlyScreen.vcxproj -> C:\이정훈\국민대학교\2학년 1학기\C++ 프로그래밍\snakeProject\git\SnakeGame_헤더 분리\x64\Debug\SnakeGame.exe

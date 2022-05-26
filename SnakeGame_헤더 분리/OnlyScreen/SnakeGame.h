@@ -38,6 +38,9 @@ class SnakeGame
 	// deleteGate()
 	void deleteGate();	// 기존 gate 좌표의 값을 1로 수정
 
+	// passGate()
+	SnakePiece passGate(Gate* gate);	// gate1을 지나면 매개변수에 gate2를 넣는다.
+
 public:
 	SnakeGame(int height, int width, int speed);
 
