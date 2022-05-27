@@ -27,12 +27,18 @@ Snake::Snake()
 
 void Snake::addPiece(SnakePiece piece)
 {
-	prev_pieces.push(piece);
+	prev_pieces.push_back(piece);
 }
 
 void Snake::removePiece()
 {
-	prev_pieces.pop();
+	prev_pieces.pop_front();
+}
+
+// eatPoison °æ¿ì
+void Snake::removeBackPiece()
+{
+	prev_pieces.pop_back();
 }
 
 SnakePiece Snake::tail()

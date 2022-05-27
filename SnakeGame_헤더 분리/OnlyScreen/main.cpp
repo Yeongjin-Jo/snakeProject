@@ -33,6 +33,5 @@ int main(int argc, char **argv)
 	endwin();
 
 	std::cout << "You scored: " << game.getScore() << " points!" << std::endl;
-
 	return 0;
 }

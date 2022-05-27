@@ -4,6 +4,7 @@
 #include <windows.h>
 #include <stdlib.h>
 #include "Apple.h"
+#include "Poison.h"
 #include "Empty.h"
 #include "Board.h"
 #include "Drawable.h"
@@ -16,9 +17,14 @@ class SnakeGame
 	Board board;
 	bool game_over;
 	Apple* apple;
+	Poison* poison;
 	Snake snake;
 	Gate* gate1;
 	Gate* gate2;
+	int currentLength;
+	int maxLength;
+	int usingApple;
+	int usingPoison;
 
 	Scoreboard scoreboard;
 	int score;
@@ -31,6 +37,18 @@ class SnakeGame
 
 	// eatApple()
 	void eatApple();
+
+	// deleteApple()
+	void deleteApple();
+
+	//createPoison()
+	void createPoison();
+
+	// eatPoison()
+	void eatPoison();
+
+	// deletePoison()
+	void deletePoison();
 
 	// createGate()
 	void createGate();
@@ -57,4 +75,16 @@ public:
 	bool isOver();
 
 	int getScore();
+
+	// snake 현재 길이
+	int getCurrentLength();
+
+	// snake 최대 길이
+	int getMaxLength();
+
+	// Apple 사용 횟수
+	int getUsingApple();
+
+	//Poison 사용 횟수
+	int getUsingPoison();
 };

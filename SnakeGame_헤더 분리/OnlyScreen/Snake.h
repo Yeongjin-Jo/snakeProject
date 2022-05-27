@@ -2,6 +2,7 @@
 
 #include "Drawable.h"
 #include <queue>
+#include <deque>
 
 enum Direction
 {
@@ -27,13 +28,15 @@ class Snake
 	Direction cur_direction;
 
 public:
-	std::queue<SnakePiece> prev_pieces;
+	std::deque<SnakePiece> prev_pieces;
 
 	Snake();
 
 	void addPiece(SnakePiece piece);
 
 	void removePiece();
+
+	void removeBackPiece();
 
 	SnakePiece tail();
 
