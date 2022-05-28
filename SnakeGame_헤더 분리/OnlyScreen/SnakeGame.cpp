@@ -354,6 +354,7 @@ void SnakeGame::updateState()
 	if (board.time == 0)	// 시간이 0가 되면 gate를 이동시키고 시간은 다시 50으로 세팅.
 	{
 		deleteApple();
+		deletePoison();
 		deleteGate();
 		board.time = 50;
 	}
