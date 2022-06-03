@@ -1,0 +1,7 @@
+D:\SnakeGame\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
+C:\Users\min27\Desktop\SnakeGame_헤더 분리\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
+C:\Users\Administrator\Desktop\Git\C++2022\SnakeProject\SnakeGame_헤더 분리\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
+C:\이정훈\국민대학교\2학년 1학기\C++ 프로그래밍\snakeProject\git\SnakeGame ver1.3\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
+C:\Users\Administrator\Desktop\Git\C++2022\SnakeProject\SnakeGame ver1.4\SnakeGame ver1.3\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
+C:\Users\Administrator\Desktop\Git\C++2022\SnakeProject\SnakeGame ver1.5\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
+C:\Users\min27\Desktop\SnakeGame ver1.5\OnlyScreen\x64\Debug\OnlyScreen.vcxproj.CopyComplete
